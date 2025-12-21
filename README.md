@@ -1,16 +1,140 @@
-# React + Vite
+AI Study Timetable Generator
+Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+AI Study Timetable Generator is a React-based application that creates a personalized daily schedule for students based on their inputs. The app intelligently handles school/college timings, study priorities, break times, and personal activities using a rule-based approach. Students can also edit activities directly in the UI for flexibility.
 
-Currently, two official plugins are available:
+The generated timetable includes blocks for:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Morning routine (wake up, freshen up, exercise, breakfast)
 
-## React Compiler
+School/College (fixed timing if applicable)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Study sessions (priority subject & subject-wise allocation)
 
-## Expanding the ESLint configuration
+Lunch and rest
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Breaks and play
+
+Revision and main study
+
+Dinner/family time and wind-down
+
+Sleep
+
+The timetable adapts for college days, holidays, and custom activities.
+
+Features
+
+Dynamic schedule generation based on user inputs.
+
+Handles college vs holiday logic automatically.
+
+Subject priority handling: Allocate more or less time for specific subjects.
+
+Flexible activity blocks: Users can edit activities directly in the UI.
+
+Color-coded activities for better visualization:
+
+Study: Blue
+
+Play: Green
+
+Sleep: Purple
+
+Meals: Yellow
+
+School/College: Gray
+
+Exercise: Emerald
+
+Revision: Indigo
+
+Technologies Used
+
+React (Function Components)
+
+React Router (useLocation) for passing user inputs
+
+Framer Motion (for animations)
+
+Tailwind CSS for styling
+
+JavaScript (ES6)
+How to Use
+
+Provide your inputs through a form (or via location.state in React Router):
+
+Wake Up Time
+
+Sleep Time
+
+Is Today a Holiday?
+
+Is Whole Week a Holiday?
+
+School/College Timing
+
+Other Activities (optional)
+
+Subjects (comma-separated)
+
+Priority Subject (more time)
+
+Less Time Subject (optional)
+
+The AI generates a daily schedule automatically.
+
+Click on any activity block to edit the activity manually.
+
+Example Schedule Output
+7:00 AM - 7:30 AM   Wake up & Freshen up
+7:30 AM - 8:00 AM   Exercise / Yoga
+8:00 AM - 8:30 AM   Breakfast
+9:00 AM - 3:00 PM   School / College
+12:30 PM - 1:15 PM  Lunch + Rest
+1:15 PM - 2:45 PM   Study (Priority Subject)
+2:45 PM - 3:15 PM   Break / Relax
+3:15 PM - 5:00 PM   Study (Software ML FSWD SR DWDM)
+5:00 PM - 6:00 PM   Play
+6:00 PM - 7:30 PM   Study (Other Subjects)
+7:30 PM - 8:15 PM   Revision (Less Time Subject)
+8:15 PM - 9:00 PM   Dinner + Family Time
+9:00 PM - 10:00 PM  Relax / Wind Down
+10:00 PM - 7:00 AM Sleep
+
+Customization
+
+Add/Remove subjects: Update the subjectsInput array in the input form.
+
+Change activity duration: Modify constants like TOTAL_STUDY_MINUTES, LUNCH_DURATION, or block-specific minutes in generateSchedule.
+
+Add more activity types: Add new entries in the colors object for automatic color coding.
+
+Change UI styles: Modify Tailwind classes in StudyScheduleGenerator.jsx.
+
+Folder Structure
+/src
+ ├─ /components
+ │    └─ StudyScheduleGenerator.jsx
+ ├─ /pages
+ ├─ App.jsx
+ ├─ index.js
+ └─ styles.css
+
+Notes
+
+The app automatically adjusts schedule blocks if there is a conflict with Other Activities.
+
+School/College blocks are treated as fixed; AI schedules the rest around them.
+
+Works for both college-going days and holiday days.
+
+Future Improvements
+
+Add weekly timetable generation.
+
+Integrate notifications or reminders for each activity.
+
+Add AI suggestions for time optimization.
+
+Save schedule to PDF or shareable link.
