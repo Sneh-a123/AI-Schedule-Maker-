@@ -425,21 +425,38 @@ export default function StudyScheduleGenerator() {
               className={`${bgColor} p-4 rounded-2xl shadow-lg cursor-pointer`}
               onClick={() => setActiveIndex(index)}
             >
-              <div className="font-semibold text-gray-600 mb-1">
-                {item.time}
-              </div>
               {activeIndex === index ? (
-                <input
-                  value={item.activity}
-                  onChange={(e) => {
-                    const updated = [...schedule];
-                    updated[index].activity = e.target.value;
-                    setSchedule(updated);
-                  }}
-                  className="w-full border rounded px-2 py-1"
-                />
+                <>
+                  <input
+                    value={item.time}
+                    onChange={(e) => {
+                      const updated = [...schedule];
+                      updated[index].time = e.target.value;
+                      setSchedule(updated);
+                    }}
+                    className="w-full border rounded px-2 py-1 mb-2"
+                    placeholder="Time (e.g., 9:00 AM - 10:00 AM)"
+                  />
+                  <input
+                    value={item.activity}
+                    onChange={(e) => {
+                      const updated = [...schedule];
+                      updated[index].activity = e.target.value;
+                      setSchedule(updated);
+                    }}
+                    className="w-full border rounded px-2 py-1"
+                    placeholder="Activity"
+                  />
+                </>
               ) : (
-                <div className="font-medium text-gray-800">{item.activity}</div>
+                <>
+                  <div className="font-semibold text-gray-600 mb-1">
+                    {item.time}
+                  </div>
+                  <div className="font-medium text-gray-800">
+                    {item.activity}
+                  </div>
+                </>
               )}
             </div>
           );
