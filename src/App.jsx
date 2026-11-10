@@ -9,6 +9,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/study-schedule" element={<StudyScheduleGenerator />} />
+        <Route path="/schedule" element={<StudyScheduleGenerator />} />
         <Route path="/questions" element={<QuestionsForm />} />
       </Routes>
     </BrowserRouter>
